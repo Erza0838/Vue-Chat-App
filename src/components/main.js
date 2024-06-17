@@ -1,30 +1,17 @@
-import { createApp } from "vue"
-import { createRouter,createWebHistory } from "vue-router"
+import { createApp, createElementBlock, render } from "vue"
+import LoginProcessPage from "../components/LoginProcessPage.vue"
+import RegisterProcessPage from "../components/RegisterProcessPage.vue"
+import router from "../router/Router.js"
 
-import LoginProcessPage from "./LoginProcessPage.vue"
-// import RegisterProcessPage from "./RegisterProcessPage.vue"
+// Render form login
+// const RenderLoginPage = createApp(LoginProcessPage)
+// RenderLoginPage.use(router).mount("#container")
 
-const RenderLoginPage = createApp(LoginProcessPage)
-RenderLoginPage.mount("#container")
+// Render form register
+const RenderRegisterPage = createApp(RegisterProcessPage)
+RenderRegisterPage.use(router).mount("#container")
 
-const router = createRouter({
-    history: createWebHistory(),
-    routePath:
-    [
-        {   
-            path: "/LoginUser",
-            name: "LoginPage",
-            component: LoginProcessPage,
-        },
-        {
-            path: "/RegisterUser",
-            name: "RegisterPage",
-            component: () => 
-            {   
-                import("./RegisterProcessPage.vue")
-            }
-        }
-    ]
-})
-
-RenderLoginPage.use(router)
+// Render form register
+// const RenderRegisterPage = createApp(RegisterProcessPage)
+// RenderRegisterPage.use(router)
+// RenderRegisterPage.mount("#RegisterPageContainer")

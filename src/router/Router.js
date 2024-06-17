@@ -1,21 +1,35 @@
-// import { createApp } from "vue"
-// import { createRouter, createWebHashHistory, createWebHistory } from "vue-router";
 import { createRouter,createWebHistory } from "vue-router"
-
-// import { Register } from "../components/RegisterProcessPage.vue"
-// import { Login } from "../components/LoginProcessPage.vue"
+import LoginProcessPage from "../components/LoginProcessPage.vue"
+import RegisterProcessPage from "../components/RegisterProcessPage.vue"
 
 const routes = 
 [
-    {path: "/Home", name: "Home", component: () => "./components/LoginProcessPage.vue"},
-    {path: "/Register", name: "Register", component: () => "./components/RegisterProcessPage.vue"},
-    // {path: "/Home", name: "home", component: Login},
-    // {path: "/Register", name: "Register", component: Register}
+    // { 
+    //     name: "LoginUser", 
+    //     path: "/LoginUser", 
+    //     component: LoginProcessPage
+    // },
+    // {   
+    //     name: "RegisterUser",
+    //     path: "/RegisterUser",
+    //     component: RegisterProcessPage
+    // }
+    { 
+        name: "LoginUser", 
+        path: "/LoginUser", 
+        component: () => import("../components/LoginProcessPage.vue")
+    },
+    {   
+        name: "RegisterUser",
+        path: "/RegisterUser",
+        component: () => import("../components/RegisterProcessPage.vue")
+    }
 ]
 
 const router = createRouter({
-    routes,
-    history: createWebHistory("/Home")
+    history: createWebHistory("/LoginUser"),
+    // history: createWebHistory("/RegisterUser"),
+    routes
 })
 
-export default router
+export default router   
